@@ -4,13 +4,6 @@ document.getElementById('temperatureForm').addEventListener('submit', function(e
     let temperature = parseFloat(document.getElementById('temperature').value);
     let unit = document.getElementById('unit').value;
     
-    if (isNaN(temperature)) {
-        alert('Masukkan suhu yang valid!');
-        return;
-    }
-    
-    let result;
-    
     if (unit === 'celsius') {
         // Konversi dari Celsius ke Fahrenheit
         result = (temperature * 9/5) + 32;
@@ -23,18 +16,3 @@ document.getElementById('temperatureForm').addEventListener('submit', function(e
     
     document.getElementById('resultContainer').style.display = 'block';
 });
-
-function createSnowflake() {
-    const snowflake = document.createElement('div');
-    snowflake.classList.add('snowflake');
-    snowflake.style.left = Math.random() * window.innerWidth + 'px';
-    document.body.appendChild(snowflake);
-
-    // Hapus elemen salju setelah melewati bagian bawah layar
-    snowflake.addEventListener('animationiteration', () => {
-        snowflake.remove();
-    });
-}
-
-// Membuat beberapa elemen salju jatuh setiap beberapa detik
-setInterval(createSnowflake, 500);
